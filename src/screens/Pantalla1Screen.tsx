@@ -2,8 +2,9 @@ import { StackScreenProps } from '@react-navigation/stack';
 import React from 'react'
 import { Button, Text, View } from 'react-native'
 import { stylesGlobal } from '../theme/appTheme';
+import { RootSatckParams } from '../navigator/StackNavigator';
 
-interface Props extends StackScreenProps<any, any>{};
+type Props = StackScreenProps<RootSatckParams, 'Pantalla1'>;
 
 interface Persona{
     id: number;
@@ -18,6 +19,11 @@ export const Pantalla1Screen = ({navigation}:Props) => {
     nombre: 'Viviana',
     edad: 34
   }
+  const persona2: Persona= {
+    id: 2,
+    nombre: 'Stalyn',
+    edad: 24
+  }
 
     //console.log(props);
   return (
@@ -27,6 +33,10 @@ export const Pantalla1Screen = ({navigation}:Props) => {
         onPress={()=> navigation.navigate('Pantalla2')} />
           <Button title= 'Ir persona'
         onPress={()=> navigation.navigate('Persona',persona)} />
+        <Button title='persona'
+        onPress={()=> navigation.navigate('Persona',persona2)}/>
     </View>
   )
 }
+
+
